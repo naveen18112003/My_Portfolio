@@ -39,7 +39,7 @@ export const Preloader = () => {
                                 initial={{ scale: 2, opacity: 0, filter: "blur(30px)" }}
                                 animate={{ scale: 1, opacity: 1, filter: "blur(0px)" }}
                                 transition={{ duration: 1.5, ease: [0.23, 1, 0.32, 1], delay: 0.2 }}
-                                className="text-5xl md:text-8xl font-black text-center text-white font-space-grotesk leading-tight tracking-tighter"
+                                className="text-4xl md:text-8xl font-black text-center text-white font-space-grotesk leading-tight tracking-tight px-4"
                             >
                                 NAVEEN
                                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-300 to-primary animate-gradient-x">
