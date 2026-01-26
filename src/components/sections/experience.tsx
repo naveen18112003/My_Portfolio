@@ -1,3 +1,6 @@
+"use client";
+
+import React from "react";
 import { m } from "framer-motion";
 import { Calendar, Award, BookOpen, Trophy } from "lucide-react";
 import { Card } from "@/components/ui/card";

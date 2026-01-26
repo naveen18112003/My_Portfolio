@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { m, AnimatePresence } from "framer-motion";
@@ -178,7 +178,13 @@ export function Projects() {
                             {/* Image Side */}
                             <div className="flex-1 z-10">
                                 <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/5 group-hover:border-primary/30 transition-colors">
-                                    <Image src={project.image} fill className="object-cover transition-transform duration-700 group-hover:scale-110" alt={project.title} />
+                                    <Image
+                                        src={project.image}
+                                        fill
+                                        className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                        alt={project.title}
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                    />
                                     <div className="absolute inset-0 bg-black/40 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity">
                                         <Link href={project.github} target="_blank"><Button size="sm" className="bg-white text-black">Source</Button></Link>
                                         {project.demo !== "#" && <Link href={project.demo} target="_blank"><Button size="sm" className="bg-primary text-white">Live Demo</Button></Link>}

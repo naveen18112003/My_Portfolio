@@ -1,3 +1,6 @@
+"use client";
+
+import React from "react";
 import { m } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
