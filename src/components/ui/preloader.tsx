@@ -17,8 +17,8 @@ export const Preloader = () => {
         <AnimatePresence mode="wait">
             {isVisible && (
                 <m.div
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    exit={{ opacity: 0, scale: 1.05, filter: "blur(10px)" }}
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
                     className="fixed inset-0 h-[100dvh] z-[9999] flex items-center justify-center bg-[#050505] overflow-hidden"
                 >
                     <div className="relative z-10 flex flex-col items-center justify-center w-full px-6">
@@ -28,9 +28,9 @@ export const Preloader = () => {
                             initial={{ opacity: 0, letterSpacing: "15px", y: 10 }}
                             animate={{ opacity: 1, letterSpacing: "4px", y: 0 }}
                             transition={{ duration: 1, ease: "easeOut" }}
-                            className="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-[0.4em] pl-[0.4em] mb-6 text-center will-change-[transform,opacity]"
+                            className="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-[0.2em] md:tracking-[0.4em] pl-[0.2em] md:pl-[0.4em] mb-6 text-center will-change-[transform,opacity]"
                         >
-                            Orchestrating Intelligence
+                            WELCOME TO NAVEEN PORTFOLIO
                         </m.h2>
 
                         {/* Part 2: NAVEEN PORTFOLIO */}
