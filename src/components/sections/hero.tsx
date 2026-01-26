@@ -103,7 +103,7 @@ export function Hero() {
                                 src="/profile.png"
                                 alt="Naveen"
                                 fill
-                                className="object-cover object-top transition-transform duration-700 group-hover:scale-110 scale-[1.5]"
+                                className="object-cover object-top transition-transform duration-700 group-hover:scale-110 lg:scale-[1.5]"
                                 priority
                             />
                         </div>

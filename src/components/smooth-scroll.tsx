@@ -5,13 +5,13 @@ import { ReactLenis } from "@studio-freight/react-lenis";
 export function SmoothScroll({ children }: { children: React.ReactNode }) {
     return (
         <ReactLenis root options={{
-            lerp: 0.1, // Increase lerp for mobile feel if enabled
+            lerp: 0.1,
             duration: 1.2,
             smoothWheel: true,
             wheelMultiplier: 1,
             touchMultiplier: 2,
             infinite: false,
-            syncTouch: false // Disable touch sync for native feel
+            syncTouch: false, // Core fix: let mobile handle touch natively
         }}>
             {children}
         </ReactLenis>

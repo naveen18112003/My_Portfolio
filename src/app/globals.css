@@ -4,8 +4,8 @@
 
 @layer base {
   :root {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
 
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
@@ -13,7 +13,8 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 263.4 70% 50.4%; /* Agentic Purple */
+    --primary: 263.4 70% 50.4%;
+    /* Agentic Purple */
     --primary-foreground: 210 40% 98%;
 
     --secondary: 217.2 32.6% 17.5%;
@@ -36,7 +37,8 @@
   }
 
   .dark {
-    --background: 224 71% 4%; /* #030014 Deepest Navy/Black */
+    --background: 224 71% 4%;
+    /* #030014 Deepest Navy/Black */
     --foreground: 210 40% 98%;
 
     --card: 222.2 84% 4.9%;
@@ -48,7 +50,8 @@
     --primary: 263.4 70% 50.4%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 189 94% 43%; /* Cyan Glow */
+    --secondary: 189 94% 43%;
+    /* Cyan Glow */
     --secondary-foreground: 222.2 47.4% 11.2%;
 
     --muted: 217.2 32.6% 17.5%;
@@ -70,6 +73,7 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }

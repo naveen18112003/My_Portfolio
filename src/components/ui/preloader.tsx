@@ -28,7 +28,7 @@ export const Preloader = () => {
                             initial={{ opacity: 0, letterSpacing: "20px", y: 20 }}
                             animate={{ opacity: 1, letterSpacing: "5px", y: 0 }}
                             transition={{ duration: 1.5, ease: "easeOut" }}
-                            className="text-sm md:text-xl font-mono text-gray-400 uppercase tracking-[0.5em] mb-4"
+                            className="text-sm md:text-xl font-mono text-gray-400 uppercase tracking-[0.5em] pl-[0.5em] mb-4 text-center"
                         >
                             Welcome To
                         </motion.h2>
