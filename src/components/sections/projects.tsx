@@ -1,14 +1,10 @@
-"use client";
-
-import { useRef, useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
+import { m, useMotionTemplate, useMotionValue, AnimatePresence } from "framer-motion";
 import { ExternalLink, Github, ArrowUpRight, FolderGit2, Layers, X, Info, Zap, Target, TrendingUp } from "lucide-react";
 import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import mermaid from "mermaid";
 
 interface Project {
     title: string;
@@ -202,30 +198,30 @@ export function Projects() {
         <section id="projects" className="py-24 relative">
             <div className="absolute top-0 right-0 -mt-20 -mr-20 w-[600px] h-[600px] bg-secondary/5 rounded-full blur-[100px] pointer-events-none" />
 
-            <div className="container px-4 mx-auto relative z-10">
-                <motion.div
+            <div className="container-custom relative z-10 font-sans">
+                <m.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     className="mb-16 text-center"
                 >
-                    <h2 className="text-3xl md:text-5xl font-bold font-space-grotesk mb-6">
-                        Featured <span className="text-secondary">Work</span>
+                    <h2 className="text-3xl md:text-5xl font-bold font-space-grotesk mb-6 text-white">
+                        Featured <span className="text-primary">Work</span>
                     </h2>
-                    <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                        A selection of projects demonstrating complex system architecture and AI integration.
+                    <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto">
+                        High-performance systems spanning Agentic AI, RAG, and Revenue Intelligence.
                     </p>
-                </motion.div>
+                </m.div>
 
                 <div className="grid grid-cols-1 gap-12 max-w-5xl mx-auto">
                     {projects.map((project, idx) => (
-                        <motion.div
+                        <m.div
                             key={project.title}
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: true, margin: "-50px" }}
                             transition={{ delay: idx * 0.1 }}
-                            className="group relative flex flex-col md:flex-row gap-8 p-8 rounded-3xl border border-white/10 bg-black/40 backdrop-blur-md hover:border-primary/50 transition-all duration-500 overflow-hidden"
+                            className="group relative flex flex-col md:flex-row gap-8 p-6 md:p-8 rounded-3xl border border-white/5 bg-white/[0.02] backdrop-blur-md hover:border-primary/40 transition-all duration-500 overflow-hidden will-change-transform"
                         >
                             {/* Decorative Background */}
                             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

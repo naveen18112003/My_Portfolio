@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ArrowRight, Download, Mail } from "lucide-react";
 import Typewriter from "typewriter-effect";
 import { Button } from "@/components/ui/button";
@@ -15,102 +15,93 @@ import { AgentTerminal } from "@/components/ui/agent-terminal";
 
 export function Hero() {
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden pt-20 pb-12">
             <NeuralNetwork />
-            <div className="container px-4 mx-auto flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-20 relative z-10">
+            <div className="container-custom relative z-10">
+                <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8">
 
-                {/* Text Content */}
-                <motion.div
-                    initial={{ opacity: 0, x: -50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    className="flex-1 text-center lg:text-left z-10"
-                >
-                    <div className="mb-6 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-medium">
-                        <span className="relative flex h-2 w-2">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-                        </span>
-                        Available for Hire
-                    </div>
+                    {/* Visual Pillar (First on Mobile for better engagement) */}
+                    <m.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        className="w-full lg:flex-1 flex justify-center order-first lg:order-last will-change-transform"
+                    >
+                        <div className="relative w-48 h-48 sm:w-64 sm:h-64 lg:w-[400px] lg:h-[400px] group">
+                            <div className="absolute inset-0 bg-gradient-to-tr from-primary to-secondary rounded-full blur-[40px] lg:blur-[60px] opacity-20 group-hover:opacity-40 transition-opacity duration-700 animate-pulse" />
+                            <div className="relative w-full h-full rounded-full border-2 border-white/10 overflow-hidden bg-black/60 shadow-2xl">
+                                <Image
+                                    src="/profile.png"
+                                    alt="Naveen"
+                                    fill
+                                    className="object-cover object-top transition-transform duration-1000 group-hover:scale-105 lg:scale-125"
+                                    priority
+                                    sizes="(max-width: 768px) 192px, 400px"
+                                />
+                            </div>
+                        </div>
+                    </m.div>
 
-                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-space-grotesk tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-gray-400">
-                        <HackerText text="Naveen Kumar" className="block" />
-                        <span className="text-secondary text-5xl md:text-7xl tracking-tighter">Yadav</span>
-                    </h1>
+                    {/* Content Pillar */}
+                    <m.div
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.1 }}
+                        className="w-full lg:flex-1 text-center lg:text-left will-change-[transform,opacity]"
+                    >
+                        <div className="mb-6 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-semibold uppercase tracking-wider">
+                            <span className="relative flex h-2 w-2">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-50"></span>
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                            </span>
+                            Available for Global Projects
+                        </div>
 
-                    <div className="text-xl md:text-2xl text-muted-foreground mb-8 h-[60px] md:h-auto font-mono">
-                        <Typewriter
-                            options={{
-                                strings: [
-                                    "Enterprise RAG Platforms",
-                                    "Autonomous AI Agents",
-                                    "Revenue Intelligence Systems",
-                                    "Cybersecurity Analysis",
-                                ],
-                                autoStart: true,
-                                loop: true,
-                                deleteSpeed: 50,
-                                delay: 50,
-                            }}
-                        />
-                    </div>
+                        <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold font-space-grotesk tracking-tight mb-4 text-white leading-[1.1]">
+                            <HackerText text="Naveen" className="text-white" /> {" "}
+                            <span className="text-secondary">Yadav</span>
+                        </h1>
 
-                    <p className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto lg:mx-0">
-                        Final year CSE (IoT & Cybersecurity) student at Sir MVIT, Bengaluru.
-                        Passionate about building scalable AI systems and autonomous agents.
-                    </p>
-
-                    <AgentTerminal />
-
-                    <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start mt-8">
-                        <Link href="#projects">
-                            <MagneticButton>
-                                <Button size="lg" className="w-full sm:w-auto glow bg-primary hover:bg-primary/90">
-                                    View Projects <ArrowRight className="ml-2 w-4 h-4" />
-                                </Button>
-                            </MagneticButton>
-                        </Link>
-                        <a href="/resume.pdf" download="Naveen_Kumar_Yadav_Resume.pdf">
-                            <MagneticButton>
-                                <Button variant="outline" size="lg" className="w-full sm:w-auto border-white/20 hover:bg-white/10">
-                                    Download Resume <Download className="ml-2 w-4 h-4" />
-                                </Button>
-                            </MagneticButton>
-                        </a>
-                        <Link href="#contact">
-                            <Button variant="ghost" size="lg" className="w-full sm:w-auto hover:bg-white/5">
-                                Contact Me <Mail className="ml-2 w-4 h-4" />
-                            </Button>
-                        </Link>
-                    </div>
-                </motion.div>
-
-                {/* Photo / Visual */}
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8 }}
-                    className="flex-1 relative z-10 flex justify-center"
-                >
-                    <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-[400px] lg:h-[400px] group">
-                        {/* Glow Effect */}
-                        <div className="absolute inset-0 bg-gradient-to-tr from-primary to-secondary rounded-full blur-[50px] opacity-30 group-hover:opacity-60 transition-opacity duration-500 animate-pulse" />
-
-                        {/* Image Container */}
-                        <div className="relative w-full h-full rounded-full border-4 border-white/5 overflow-hidden bg-black/50 backdrop-blur-sm shadow-2xl">
-                            <Image
-                                src="/profile.png"
-                                alt="Naveen"
-                                fill
-                                className="object-cover object-top transition-transform duration-700 group-hover:scale-110 lg:scale-[1.5]"
-                                priority
+                        <div className="text-lg sm:text-xl lg:text-2xl text-muted-foreground mb-6 font-mono h-12 flex items-center justify-center lg:justify-start">
+                            <Typewriter
+                                options={{
+                                    strings: [
+                                        "Agentic AI Architect",
+                                        "Enterprise RAG Specialist",
+                                        "Revenue Intelligence System Builder",
+                                        "Backend Security Expert",
+                                    ],
+                                    autoStart: true,
+                                    loop: true,
+                                    delay: 40,
+                                    deleteSpeed: 30,
+                                }}
                             />
                         </div>
 
+                        <p className="text-base sm:text-lg text-muted-foreground/80 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                            Crafting autonomous intelligence and resilient backend infrastructures. Senior student at Sir MVIT, Bengaluru, specializing in IoT & Cybersecurity.
+                        </p>
 
-                    </div>
-                </motion.div>
+                        <div className="hidden sm:block">
+                            <AgentTerminal />
+                        </div>
+
+                        <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start mt-10">
+                            <Link href="#projects">
+                                <Button size="lg" className="w-full sm:w-auto h-12 px-8 bg-primary hover:bg-primary/90 rounded-full font-bold">
+                                    Explore Engineering <ArrowRight className="ml-2 w-4 h-4" />
+                                </Button>
+                            </Link>
+                            <a href="/resume.pdf" download>
+                                <Button variant="outline" size="lg" className="w-full sm:w-auto h-12 px-8 border-white/10 hover:bg-white/5 rounded-full">
+                                    Get Resume <Download className="ml-2 w-4 h-4" />
+                                </Button>
+                            </a>
+                        </div>
+                    </m.div>
+
+                </div>
             </div>
         </section>
     );

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 
 export const Preloader = () => {
     const [isVisible, setIsVisible] = useState(true);
@@ -16,55 +16,49 @@ export const Preloader = () => {
     return (
         <AnimatePresence mode="wait">
             {isVisible && (
-                <motion.div
-                    exit={{ opacity: 0, scale: 1.1, filter: "blur(20px)" }}
-                    transition={{ duration: 1, ease: "easeInOut" }}
-                    className="fixed inset-0 h-[100dvh] z-[100] flex items-center justify-center bg-black overflow-hidden"
+                <m.div
+                    exit={{ opacity: 0, scale: 1.05, filter: "blur(10px)" }}
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                    className="fixed inset-0 h-[100dvh] z-[100] flex items-center justify-center bg-[#050505] overflow-hidden"
                 >
-                    <div className="relative z-10 flex flex-col items-center">
+                    <div className="relative z-10 flex flex-col items-center justify-center w-full px-6">
 
                         {/* Part 1: WELCOME TO */}
-                        <motion.h2
-                            initial={{ opacity: 0, letterSpacing: "20px", y: 20 }}
-                            animate={{ opacity: 1, letterSpacing: "5px", y: 0 }}
-                            transition={{ duration: 1.5, ease: "easeOut" }}
-                            className="text-sm md:text-xl font-mono text-gray-400 uppercase tracking-[0.5em] pl-[0.5em] mb-4 text-center"
+                        <m.h2
+                            initial={{ opacity: 0, letterSpacing: "15px", y: 10 }}
+                            animate={{ opacity: 1, letterSpacing: "4px", y: 0 }}
+                            transition={{ duration: 1, ease: "easeOut" }}
+                            className="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-[0.4em] pl-[0.4em] mb-6 text-center will-change-[transform,opacity]"
                         >
-                            Welcome To
-                        </motion.h2>
+                            Orchestrating Intelligence
+                        </m.h2>
 
-                        {/* Part 2: NAVEEN PORTFOLIO (Cinematic Scale Reveal) */}
-                        <div className="relative">
-                            <motion.h1
-                                initial={{ scale: 2, opacity: 0, filter: "blur(30px)" }}
-                                animate={{ scale: 1, opacity: 1, filter: "blur(0px)" }}
-                                transition={{ duration: 1.5, ease: [0.23, 1, 0.32, 1], delay: 0.2 }}
-                                className="text-4xl md:text-8xl font-black text-center text-white font-space-grotesk leading-tight tracking-tight px-4"
+                        {/* Part 2: NAVEEN PORTFOLIO */}
+                        <div className="relative flex flex-col items-center">
+                            <m.h1
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+                                className="text-4xl md:text-7xl font-black text-center text-white font-space-grotesk leading-none tracking-tighter will-change-transform"
                             >
-                                NAVEEN
-                                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-300 to-primary animate-gradient-x">
-                                    PORTFOLIO
+                                NAVEEN <span className="text-primary lg:text-white">KUMAR</span>
+                                <span className="block mt-1 text-2xl md:text-5xl opacity-80">
+                                    YADAV
                                 </span>
-                            </motion.h1>
+                            </m.h1>
 
-                            {/* Glow Effect behind text */}
-                            <motion.div
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 0.5 }}
-                                transition={{ duration: 2, delay: 0.5 }}
-                                className="absolute inset-0 bg-primary/20 blur-[100px] -z-10"
+                            <m.div
+                                initial={{ scaleX: 0 }}
+                                animate={{ scaleX: 1 }}
+                                transition={{ duration: 1.2, delay: 0.5, ease: "circOut" }}
+                                className="h-[1px] w-24 md:w-32 bg-primary mt-8 will-change-transform"
                             />
                         </div>
 
-                        {/* Part 3: Decoration Lines */}
-                        <motion.div
-                            initial={{ width: 0, opacity: 0 }}
-                            animate={{ width: "200px", opacity: 1 }}
-                            transition={{ duration: 1.5, delay: 0.8 }}
-                            className="h-[1px] bg-gradient-to-r from-transparent via-white to-transparent mt-8"
-                        />
                     </div>
-                </motion.div>
+                    {/* Atmospheric Glow */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
+                </m.div>
             )}
         </AnimatePresence>
     );
