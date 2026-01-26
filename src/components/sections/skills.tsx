@@ -1,10 +1,10 @@
 "use client";
 
 import React from "react";
-import { m } from "framer-motion";
+import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
-import { Brain, Code2, Database, Terminal, Cpu, Network, Layers, Bot, GitBranch, Cloud } from "lucide-react";
+import { Brain, Code2, Database, Terminal, Cpu, Network } from "lucide-react";
 
 interface BentoItemProps {
     title: string;
@@ -17,7 +17,7 @@ interface BentoItemProps {
 
 const BentoItem = ({ title, description, icon, skills, className, delay = 0 }: BentoItemProps) => (
     <div className={cn("fade-in-on-load lg:animate-none", className)} style={{ animationDelay: `${delay}s` }}>
-        <m.div
+        <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-50px" }}
@@ -25,7 +25,7 @@ const BentoItem = ({ title, description, icon, skills, className, delay = 0 }: B
             className="hidden lg:block h-full will-change-transform"
         >
             <BentoItemContent title={title} description={description} icon={icon} skills={skills} />
-        </m.div>
+        </motion.div>
 
         {/* Mobile static version */}
         <div className="lg:hidden h-full rounded-3xl border border-white/5 bg-white/[0.03] backdrop-blur-md">
@@ -56,7 +56,7 @@ const BentoItemContent = ({ title, description, icon, skills }: Omit<BentoItemPr
 );
 
 const FloatingIcon = ({ icon, delay, x, y }: { icon: React.ReactNode, delay: number, x: string, y: string }) => (
-    <m.div
+    <motion.div
         initial={{ opacity: 0 }}
         animate={{
             opacity: [0.1, 0.3, 0.1],
@@ -72,7 +72,7 @@ const FloatingIcon = ({ icon, delay, x, y }: { icon: React.ReactNode, delay: num
         style={{ left: x, top: y }}
     >
         {icon}
-    </m.div>
+    </motion.div>
 );
 
 export function Skills() {
@@ -88,7 +88,7 @@ export function Skills() {
             </div>
 
             <div className="container-custom relative z-10">
-                <m.div
+                <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -100,7 +100,7 @@ export function Skills() {
                     <p className="text-muted-foreground max-w-2xl mx-auto text-base sm:text-lg">
                         Specialized stack for high-performance AI orchestration and resilient infrastructure.
                     </p>
-                </m.div>
+                </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {/* Large Item: AI & ML */}

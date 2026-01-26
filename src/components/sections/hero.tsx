@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { m } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowRight, Download, Mail } from "lucide-react";
 import Typewriter from "typewriter-effect";
 import { Button } from "@/components/ui/button";
@@ -27,7 +27,7 @@ export function Hero() {
 
                     {/* Visual Pillar - Centered for Mobile */}
                     <div className="w-full lg:flex-1 flex justify-center order-first lg:order-last fade-in-on-load lg:animate-none">
-                        <m.div
+                        <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -46,7 +46,7 @@ export function Hero() {
                                     />
                                 </div>
                             </div>
-                        </m.div>
+                        </motion.div>
 
                         {/* Mobile Only: Static Image to avoid Framer blurs/lag */}
                         <div className="lg:hidden relative w-48 h-48 sm:w-64 sm:h-64 rounded-full border-2 border-primary/20 overflow-hidden bg-black/60 shadow-xl">
@@ -63,14 +63,14 @@ export function Hero() {
 
                     {/* Content Pillar */}
                     <div className="w-full lg:flex-1 text-center lg:text-left fade-in-on-load [animation-delay:200ms]">
-                        <m.div
+                        <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.1 }}
                             className="hidden lg:block will-change-[transform,opacity]"
                         >
                             <ContentBody />
-                        </m.div>
+                        </motion.div>
 
                         {/* Mobile Only: Simple Content */}
                         <div className="lg:hidden">

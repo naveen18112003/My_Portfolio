@@ -1,5 +1,3 @@
-import { LazyMotion, domMax } from "framer-motion";
-
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
@@ -34,19 +32,17 @@ export default function RootLayout({
         </div>
         <SoundProvider>
           <ChatProvider>
-            <LazyMotion features={domMax}>
-              <SmoothScroll>
-                <Preloader />
-                <div className="hidden lg:block">
-                  <NoiseOverlay />
-                </div>
-                <CommandMenu />
-                <AiStatusBadge />
-                {children}
-                <Dock />
-                <AiChat />
-              </SmoothScroll>
-            </LazyMotion>
+            <SmoothScroll>
+              <Preloader />
+              <div className="hidden lg:block">
+                <NoiseOverlay />
+              </div>
+              <CommandMenu />
+              <AiStatusBadge />
+              {children}
+              <Dock />
+              <AiChat />
+            </SmoothScroll>
           </ChatProvider>
         </SoundProvider>
       </body>

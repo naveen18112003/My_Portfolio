@@ -99,6 +99,14 @@
   will-change: opacity, transform;
 }
 
+/* Ensure visibility if animations are disabled on desktop */
+@media (min-width: 1024px) {
+  .lg\:animate-none {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

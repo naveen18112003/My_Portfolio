@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { m, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, Github, ArrowUpRight, FolderGit2, Layers, X, Info, Zap, Target, TrendingUp } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -201,7 +201,7 @@ export function Projects() {
     return (
         <section id="projects" className="py-24 relative bg-black/20">
             <div className="container-custom relative z-10">
-                <m.div
+                <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -213,14 +213,14 @@ export function Projects() {
                     <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto text-center px-4">
                         Selection of projects demonstrating complex system architecture and intelligence.
                     </p>
-                </m.div>
+                </motion.div>
 
                 <div className="grid grid-cols-1 gap-12 max-w-5xl mx-auto px-4">
                     {projects.map((project, idx) => (
                         <div key={project.title} className="fade-in-on-load lg:animate-none" style={{ animationDelay: `${idx * 0.1}s` }}>
                             {/* Desktop Version */}
                             <div className="hidden lg:block">
-                                <m.div
+                                <motion.div
                                     initial={{ opacity: 0, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, margin: "-50px" }}
@@ -228,7 +228,7 @@ export function Projects() {
                                     className="flex group relative flex-col lg:row gap-8 p-6 md:p-8 rounded-3xl border border-white/5 bg-white/[0.02] backdrop-blur-md hover:border-primary/40 transition-all duration-500 will-change-transform overflow-hidden"
                                 >
                                     <ProjectCardContent project={project} setSelectedProject={setSelectedProject} />
-                                </m.div>
+                                </motion.div>
                             </div>
 
                             {/* Mobile Version */}
@@ -246,8 +246,8 @@ export function Projects() {
             <AnimatePresence>
                 {selectedProject && (
                     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-                        <m.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 bg-black/90 backdrop-blur-md" onClick={() => setSelectedProject(null)} />
-                        <m.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.95 }} className="relative w-full max-w-4xl max-h-[90vh] bg-[#0A0A0A] border border-white/10 rounded-3xl overflow-auto p-8 shadow-2xl">
+                        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 bg-black/90 backdrop-blur-md" onClick={() => setSelectedProject(null)} />
+                        <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.95 }} className="relative w-full max-w-4xl max-h-[90vh] bg-[#0A0A0A] border border-white/10 rounded-3xl overflow-auto p-8 shadow-2xl">
                             <div className="flex items-center justify-between mb-8">
                                 <h3 className="text-2xl font-bold text-white">{selectedProject.title}</h3>
                                 <Button variant="ghost" size="icon" onClick={() => setSelectedProject(null)} className="rounded-full hover:bg-white/5"><X className="w-5 h-5 text-white" /></Button>
@@ -270,7 +270,7 @@ export function Projects() {
                                     <div className="p-5 rounded-2xl bg-white/5 border border-white/5"><h4 className="text-green-400 text-xs font-bold uppercase mb-2">Impact</h4><p className="text-xs text-muted-foreground">{selectedProject.brief.impact}</p></div>
                                 </div>
                             )}
-                        </m.div>
+                        </motion.div>
                     </div>
                 )}
             </AnimatePresence>

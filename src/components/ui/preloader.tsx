@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { m, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 export const Preloader = () => {
     const [isVisible, setIsVisible] = useState(true);
@@ -16,7 +16,7 @@ export const Preloader = () => {
     return (
         <AnimatePresence mode="wait">
             {isVisible && (
-                <m.div
+                <motion.div
                     exit={{ opacity: 0, scale: 1.05, filter: "blur(10px)" }}
                     transition={{ duration: 0.8, ease: "easeInOut" }}
                     className="fixed inset-0 h-[100dvh] z-[9999] flex items-center justify-center bg-[#050505] overflow-hidden"
@@ -24,18 +24,18 @@ export const Preloader = () => {
                     <div className="relative z-10 flex flex-col items-center justify-center w-full px-6">
 
                         {/* Part 1: WELCOME TO */}
-                        <m.h2
+                        <motion.h2
                             initial={{ opacity: 0, letterSpacing: "15px", y: 10 }}
                             animate={{ opacity: 1, letterSpacing: "4px", y: 0 }}
                             transition={{ duration: 1, ease: "easeOut" }}
                             className="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-[0.2em] md:tracking-[0.4em] pl-[0.2em] md:pl-[0.4em] mb-6 text-center will-change-[transform,opacity]"
                         >
                             WELCOME TO NAVEEN PORTFOLIO
-                        </m.h2>
+                        </motion.h2>
 
                         {/* Part 2: NAVEEN PORTFOLIO */}
                         <div className="relative flex flex-col items-center">
-                            <m.h1
+                            <motion.h1
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
@@ -45,9 +45,9 @@ export const Preloader = () => {
                                 <span className="block mt-1 text-2xl md:text-5xl opacity-80">
                                     YADAV
                                 </span>
-                            </m.h1>
+                            </motion.h1>
 
-                            <m.div
+                            <motion.div
                                 initial={{ scaleX: 0 }}
                                 animate={{ scaleX: 1 }}
                                 transition={{ duration: 1.2, delay: 0.5, ease: "circOut" }}
@@ -58,7 +58,7 @@ export const Preloader = () => {
                     </div>
                     {/* Atmospheric Glow */}
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
-                </m.div>
+                </motion.div>
             )}
         </AnimatePresence>
     );
