@@ -214,6 +214,13 @@ function Mermaid({ chart }: { chart: string }) {
 
 export function Projects() {
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
+    if (!isMounted) return null;
 
     return (
         <section id="projects" className="py-24 relative bg-black/20">

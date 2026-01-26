@@ -28,9 +28,9 @@ export const Preloader = () => {
                         {/* Part 1: WELCOME TO */}
                         <motion.h2
                             initial={{ opacity: 0, letterSpacing: "15px", y: 10 }}
-                            animate={{ opacity: 1, letterSpacing: "6px", y: 0 }}
+                            animate={{ opacity: 1, letterSpacing: "8px", y: 0 }}
                             transition={{ duration: 1.2, ease: "easeOut" }}
-                            className="text-[10px] md:text-xs font-mono text-gray-400 tracking-[0.3em] md:tracking-[0.5em] pl-[0.3em] md:pl-[0.5em] mb-8 text-center uppercase will-change-[transform,opacity]"
+                            className="text-xs md:text-sm font-mono text-gray-400 tracking-[0.4em] md:tracking-[0.6em] pl-[0.4em] md:pl-[0.6em] mb-10 text-center uppercase will-change-[transform,opacity]"
                         >
                             <span className="lowercase">welcome to</span>
                         </motion.h2>
@@ -44,7 +44,7 @@ export const Preloader = () => {
                                 className="text-4xl md:text-7xl font-black text-center text-white font-space-grotesk leading-none tracking-tighter will-change-transform"
                             >
                                 Naveen’s
-                                <span className="block mt-1 text-2xl md:text-5xl opacity-80 uppercase tracking-widest text-primary/80">
+                                <span className="block mt-2 text-3xl md:text-6xl uppercase tracking-widest text-primary font-black drop-shadow-[0_0_15px_rgba(168,85,247,0.3)]">
                                     Portfolio
                                 </span>
                             </motion.h1>
@@ -53,7 +53,7 @@ export const Preloader = () => {
                                 initial={{ scaleX: 0 }}
                                 animate={{ scaleX: 1 }}
                                 transition={{ duration: 1.2, delay: 0.5, ease: "circOut" }}
-                                className="h-[1px] w-24 md:w-32 bg-primary mt-8 will-change-transform"
+                                className="h-[2px] w-32 md:w-48 bg-primary mt-10 will-change-transform"
                             />
                         </div>
 
