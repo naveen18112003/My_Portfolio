@@ -9,6 +9,8 @@ export const Preloader = () => {
     useEffect(() => {
         const timeout = setTimeout(() => {
             setIsVisible(false);
+            // Force layout recalculation for scroll libraries
+            window.dispatchEvent(new Event('resize'));
         }, 2200);
         return () => clearTimeout(timeout);
     }, []);
