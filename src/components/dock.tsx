@@ -10,7 +10,7 @@ export function Dock() {
     const mouseX = useMotionValue(Infinity);
 
     return (
-        <div className="fixed bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 z-50 flex h-12 sm:h-16 gap-2 sm:gap-4 items-end rounded-2xl border border-white/10 bg-white/5 px-3 sm:px-4 pb-2 sm:pb-3 backdrop-blur-md transition-all">
+        <div className="fixed bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-50 flex h-11 sm:h-16 gap-1.5 sm:gap-4 items-end rounded-2xl border border-white/10 bg-white/5 px-2.5 sm:px-4 pb-2 sm:pb-3 backdrop-blur-md transition-all">
             <DockIcon mouseX={mouseX} href="/" aria-label="Home">
                 <Home className="h-full w-full" />
             </DockIcon>
