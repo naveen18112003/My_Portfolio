@@ -28,7 +28,7 @@ interface Project {
 
 const projects: Project[] = [
     {
-        title: "Empire RAG & Agentic Search",
+        title: "Enterprise RAG & Agentic Search",
         description: "Enterprise-grade RAG system with multi-step reasoning, intent-aware pipelines, and custom in-memory vector store using cosine similarity.",
         tech: ["Python", "FastAPI", "LLMs", "Vector DB"],
         github: "https://github.com/naveen18112003/-ENTERPRISE-RAG-AGENTIC-SEARCH-PLATFORM",
@@ -52,7 +52,7 @@ graph TD
         }
     },
     {
-        title: "Autonomous AI Revenue Intel",
+        title: "Autonomous AI Revenue Intelligence",
         description: "AI-powered dashboard for CRM data analysis, deal risk scoring, and automated sales strategy generation.",
         tech: ["Python", "Streamlit", "LLMs", "Pandas"],
         github: "https://github.com/naveen18112003/Autonomous-AI-Revenue-Intelligence-Deal-Execution-Platform",
@@ -169,7 +169,7 @@ graph TD
 ];
 
 function Mermaid({ chart }: { chart: string }) {
-    const ref = React.useRef<HTMLDivElement>(null);
+    const [svg, setSvg] = useState<string>("");
     const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
@@ -179,19 +179,36 @@ function Mermaid({ chart }: { chart: string }) {
             theme: "dark",
             securityLevel: "loose",
             fontFamily: "var(--font-space-grotesk), sans-serif",
+            fontSize: 14,
         });
     }, []);
 
     useEffect(() => {
-        if (isMounted && ref.current) {
-            mermaid.run({ nodes: [ref.current] }).catch(console.error);
-        }
+        if (!isMounted || !chart) return;
+
+        const renderChart = async () => {
+            try {
+                // Generate unique ID for this render session
+                const id = `mermaid-${Math.random().toString(36).substr(2, 9)}`;
+                const { svg: generatedSvg } = await mermaid.render(id, chart.trim());
+                setSvg(generatedSvg);
+            } catch (error) {
+                console.error("Mermaid Render Error:", error);
+            }
+        };
+
+        // Small delay to ensure modal is stable
+        const timer = setTimeout(renderChart, 100);
+        return () => clearTimeout(timer);
     }, [chart, isMounted]);
 
+    if (!isMounted) return null;
+
     return (
-        <div key={chart} ref={ref} className="mermaid-renderer flex justify-center w-full overflow-auto p-4 bg-white/5 rounded-xl border border-white/10">
-            {chart}
-        </div>
+        <div
+            className="mermaid-renderer flex justify-start md:justify-center w-full overflow-x-auto p-6 bg-white/[0.03] rounded-2xl border border-white/10 min-h-[200px] items-center"
+            dangerouslySetInnerHTML={{ __html: svg || '<div class="flex items-center gap-3 text-muted-foreground text-xs"><div class="w-4 h-4 border-2 border-primary border-t-transparent rounded-full animate-spin"></div> Generating architecture diagrams...</div>' }}
+        />
     );
 }
 

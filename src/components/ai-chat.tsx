@@ -16,7 +16,7 @@ const qaBase = [
     },
     {
         q: "Tell me about his AI projects",
-        a: "Naveen has built several cutting-edge systems: from an Enterprise RAG Platform with multi-step reasoning to an Autonomous AI Business Manager. Each project now features a 'View Architecture' button so you can see the technical design diagrams!"
+        a: "Naveen has built several cutting-edge systems: from an Enterprise RAG Platform with multi-step reasoning to an Autonomous AI Business Operations Manager. Each project now features a 'View Architecture' button so you can see the technical design diagrams!"
     },
     {
         q: "How does he build AI Agents?",
