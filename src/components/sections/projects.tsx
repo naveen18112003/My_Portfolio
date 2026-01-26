@@ -100,22 +100,96 @@ sequenceDiagram
             solution: "Designed a state-machine orchestrator with strictly defined handoffs and a 'supervisor' agent that monitors for task redundancy.",
             impact: "Successfully automated 80% of repetitive operational workflows with zero manual intervention required."
         }
+    },
+    {
+        title: "News Article Categorizer",
+        description: "NLP-based classification system using TF-IDF and Naive Bayes to categorize news articles into Business, Sports, Politics, etc.",
+        tech: ["Python", "Streamlit", "Scikit-learn", "NLP"],
+        github: "https://github.com/naveen18112003",
+        demo: "#",
+        image: "/project-news.png",
+        featured: false,
+        architecture: `
+graph TD
+    Input[Article Text] --> Clean[NLTK Preprocessing]
+    Clean --> Vector[TF-IDF Vectorizer]
+    Vector --> Model[Naive Bayes Classifier]
+    Model --> Pred([Category Prediction])
+    Pred --> UI[Streamlit Dashboard]
+        `,
+        brief: {
+            challenge: "Building a lightweight, interpretable classification pipeline for real-time demos without heavy DL models.",
+            solution: "Implemented a classic TF-IDF + Multinomial Naive Bayes pipeline with custom text cleaning.",
+            impact: "Instant classification with high accuracy for standard news categories, ideal for educational demos."
+        }
+    },
+    {
+        title: "Plant Disease Detection",
+        description: "Deep learning application using CNNs to identify and classify plant diseases from leaf images.",
+        tech: ["Python", "Keras", "TensorFlow", "Streamlit"],
+        github: "https://github.com/SAURABHSINGHDHAMI/Plant-Disease-Detection",
+        demo: "#",
+        image: "/project-plant.png",
+        featured: false,
+        architecture: `
+graph LR
+    Img[Leaf Image] --> Pre[Resize & Rescale]
+    Pre --> CNN[Convolutional Neural Network]
+    CNN --> Class[Softmax Classification]
+    Class --> Out([Disease Label])
+        `,
+        brief: {
+            challenge: "Accurately diagnosing plant diseases from varied, real-world image conditions.",
+            solution: "Trained a custom CNN on a labeled dataset of plant leaves to distinguish healthy vs. diseased patterns.",
+            impact: "Provides farmers with a quick, accessible tool for early disease detection."
+        }
+    },
+    {
+        title: "Cybersecurity Risk Detector",
+        description: "ML-driven risk assessment tool that predicts system vulnerability levels and generates offline security reports.",
+        tech: ["Python", "Streamlit", "Machine Learning", "Offline Chatbot"],
+        github: "https://github.com/naveen18112003",
+        demo: "#",
+        image: "/project-security.png",
+        featured: false,
+        architecture: `
+graph TD
+    UserInput --> Features[Feature Extraction]
+    Features --> ML[Risk Classifier Model]
+    ML --> Risk([Risk Level: Low/Med/High])
+    Risk --> Report[Auto-Generate Report]
+    Report --> Chat[Offline Guidance Chatbot]
+        `,
+        brief: {
+            challenge: "Democratizing cybersecurity risk assessment for non-technical users in offline environments.",
+            solution: "Combined a classification model with an explainable AI layer and a rule-based offline chatbot.",
+            impact: "Enables secure, private risk auditing without requiring cloud connectivity or external APIs."
+        }
     }
 ];
 
 function Mermaid({ chart }: { chart: string }) {
+    const ref = React.useRef<HTMLDivElement>(null);
+    const [isMounted, setIsMounted] = useState(false);
+
     useEffect(() => {
+        setIsMounted(true);
         mermaid.initialize({
-            startOnLoad: true,
+            startOnLoad: false,
             theme: "dark",
             securityLevel: "loose",
             fontFamily: "var(--font-space-grotesk), sans-serif",
         });
-        mermaid.run({ querySelector: ".mermaid-renderer" }).catch(console.error);
-    }, [chart]);
+    }, []);
+
+    useEffect(() => {
+        if (isMounted && ref.current) {
+            mermaid.run({ nodes: [ref.current] }).catch(console.error);
+        }
+    }, [chart, isMounted]);
 
     return (
-        <div key={chart} className="mermaid-renderer flex justify-center w-full overflow-auto p-4 bg-white/5 rounded-xl border border-white/10">
+        <div key={chart} ref={ref} className="mermaid-renderer flex justify-center w-full overflow-auto p-4 bg-white/5 rounded-xl border border-white/10">
             {chart}
         </div>
     );
@@ -144,19 +218,24 @@ export function Projects() {
                 <div className="grid grid-cols-1 gap-12 max-w-5xl mx-auto px-4">
                     {projects.map((project, idx) => (
                         <div key={project.title} className="fade-in-on-load lg:animate-none" style={{ animationDelay: `${idx * 0.1}s` }}>
-                            <m.div
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, margin: "-50px" }}
-                                transition={{ delay: idx * 0.1 }}
-                                className="hidden lg:flex group relative flex-col lg:row gap-8 p-6 md:p-8 rounded-3xl border border-white/5 bg-white/[0.02] backdrop-blur-md hover:border-primary/40 transition-all duration-500 will-change-transform overflow-hidden"
-                            >
-                                <ProjectCardContent project={project} setSelectedProject={setSelectedProject} />
-                            </m.div>
+                            {/* Desktop Version */}
+                            <div className="hidden lg:block">
+                                <m.div
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, margin: "-50px" }}
+                                    transition={{ delay: idx * 0.1 }}
+                                    className="flex group relative flex-col lg:row gap-8 p-6 md:p-8 rounded-3xl border border-white/5 bg-white/[0.02] backdrop-blur-md hover:border-primary/40 transition-all duration-500 will-change-transform overflow-hidden"
+                                >
+                                    <ProjectCardContent project={project} setSelectedProject={setSelectedProject} />
+                                </m.div>
+                            </div>
 
-                            {/* Mobile version */}
-                            <div className="lg:hidden flex flex-col gap-6 p-6 rounded-3xl border border-white/5 bg-white/[0.02] backdrop-blur-md overflow-hidden">
-                                <ProjectCardContent project={project} setSelectedProject={setSelectedProject} />
+                            {/* Mobile Version */}
+                            <div className="block lg:hidden">
+                                <div className="flex flex-col gap-6 p-6 rounded-3xl border border-white/5 bg-white/[0.02] backdrop-blur-md overflow-hidden">
+                                    <ProjectCardContent project={project} setSelectedProject={setSelectedProject} />
+                                </div>
                             </div>
                         </div>
                     ))}
@@ -173,6 +252,16 @@ export function Projects() {
                                 <h3 className="text-2xl font-bold text-white">{selectedProject.title}</h3>
                                 <Button variant="ghost" size="icon" onClick={() => setSelectedProject(null)} className="rounded-full hover:bg-white/5"><X className="w-5 h-5 text-white" /></Button>
                             </div>
+
+                            <div className="relative w-full aspect-video rounded-xl overflow-hidden mb-8 border border-white/10">
+                                <Image
+                                    src={selectedProject.image}
+                                    alt={selectedProject.title}
+                                    fill
+                                    className="object-cover"
+                                />
+                            </div>
+
                             {selectedProject.architecture && <div className="mb-10"><Mermaid chart={selectedProject.architecture} /></div>}
                             {selectedProject.brief && (
                                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

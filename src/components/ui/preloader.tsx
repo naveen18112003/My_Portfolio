@@ -17,9 +17,9 @@ export const Preloader = () => {
         <AnimatePresence mode="wait">
             {isVisible && (
                 <m.div
-                    exit={{ opacity: 0, scale: 1.05, filter: "blur(10px)" }}
-                    transition={{ duration: 0.8, ease: "easeInOut" }}
-                    className="fixed inset-0 h-[100dvh] z-[100] flex items-center justify-center bg-[#050505] overflow-hidden"
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    className="fixed inset-0 h-[100dvh] z-[9999] flex items-center justify-center bg-[#050505] overflow-hidden"
                 >
                     <div className="relative z-10 flex flex-col items-center justify-center w-full px-6">
 

@@ -1,10 +1,12 @@
 import { Footer } from "@/components/footer";
 import { AnimatedBackground } from "@/components/animated-background";
 import { Hero } from "@/components/sections/hero";
-import { Skills } from "@/components/sections/skills";
-import { Projects } from "@/components/sections/projects";
-import { Experience } from "@/components/sections/experience";
-import { Contact } from "@/components/sections/contact";
+import dynamic from "next/dynamic";
+
+const Skills = dynamic(() => import("@/components/sections/skills").then(mod => mod.Skills), { ssr: true });
+const Projects = dynamic(() => import("@/components/sections/projects").then(mod => mod.Projects), { ssr: true });
+const Experience = dynamic(() => import("@/components/sections/experience").then(mod => mod.Experience), { ssr: true });
+const Contact = dynamic(() => import("@/components/sections/contact").then(mod => mod.Contact), { ssr: true });
 
 export default function Home() {
   return (

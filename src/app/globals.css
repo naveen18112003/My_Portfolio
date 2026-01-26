@@ -114,3 +114,28 @@
 .container-custom {
   @apply container mx-auto px-4 md:px-6 max-w-7xl;
 }
+
+/* Mobile Performance Overrides */
+@media (max-width: 768px) {
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
+  }
+
+  .glass,
+  .glass-morphism {
+    background: rgba(10, 10, 10, 0.95) !important;
+    backdrop-filter: none !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  }
+}
+
+.will-change-transform {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}

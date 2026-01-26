@@ -1,3 +1,5 @@
+import { LazyMotion, domAnimation } from "framer-motion";
+
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
@@ -19,32 +21,6 @@ const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
 });
 
-export const metadata: Metadata = {
-  title: "Naveen Kumar Yadav | Agentic AI & Backend Engineer",
-  description: "Elite Portfolio of Naveen Kumar Yadav, specializing in Enterprise RAG, Autonomous Agents, and Scalable Backend Architectures.",
-  openGraph: {
-    title: "Naveen Kumar Yadav | Agentic AI Engineer",
-    description: "Building the next generation of Autonomous AI Agents and RAG Platforms.",
-    url: "https://naveen-portfolio.vercel.app", // Adjust if you have a different URL
-    siteName: "Naveen Portfolio",
-    images: [
-      {
-        url: "/profile.png", // Using your profile as the share image or you can generate a specific one later
-        width: 1200,
-        height: 630,
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Naveen Kumar Yadav | Agentic AI Engineer",
-    description: "Specializing in Autonomous Agents and Scalable Backend Systems.",
-    images: ["/profile.png"],
-  },
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -58,17 +34,19 @@ export default function RootLayout({
         </div>
         <SoundProvider>
           <ChatProvider>
-            <SmoothScroll>
-              <Preloader />
-              <div className="hidden lg:block">
-                <NoiseOverlay />
-              </div>
-              <CommandMenu />
-              <AiStatusBadge />
-              {children}
-              <Dock />
-              <AiChat />
-            </SmoothScroll>
+            <LazyMotion features={domAnimation}>
+              <SmoothScroll>
+                <Preloader />
+                <div className="hidden lg:block">
+                  <NoiseOverlay />
+                </div>
+                <CommandMenu />
+                <AiStatusBadge />
+                {children}
+                <Dock />
+                <AiChat />
+              </SmoothScroll>
+            </LazyMotion>
           </ChatProvider>
         </SoundProvider>
       </body>

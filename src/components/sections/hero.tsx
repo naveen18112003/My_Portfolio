@@ -94,31 +94,25 @@ const ContentBody = ({ mobile = false }: { mobile?: boolean }) => (
             Available for Global Projects
         </div>
 
-        <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold font-space-grotesk tracking-tight mb-4 text-white leading-[1.1]">
-            {mobile ? "Naveen Yadav" : (
-                <>
-                    <HackerText text="Naveen" className="text-white" /> {" "}
-                    <span className="text-secondary">Yadav</span>
-                </>
-            )}
+        <h1 className="text-3xl sm:text-5xl lg:text-7xl font-bold font-space-grotesk tracking-tight mb-4 text-white leading-[1.1]">
+            <HackerText text="Naveen Kumar" className="text-white" /> {" "}
+            <span className="text-secondary">Yadav</span>
         </h1>
 
         <div className="text-lg sm:text-xl lg:text-2xl text-muted-foreground mb-6 font-mono h-12 flex items-center justify-center lg:justify-start">
-            {mobile ? "Agentic AI Architect" : (
-                <Typewriter
-                    options={{
-                        strings: [
-                            "Agentic AI Architect",
-                            "Enterprise RAG Specialist",
-                            "Revenue Intelligence Builder",
-                            "Backend Security Expert",
-                        ],
-                        autoStart: true,
-                        loop: true,
-                        delay: 40,
-                    }}
-                />
-            )}
+            <Typewriter
+                options={{
+                    strings: [
+                        "Agentic AI Architect",
+                        "Enterprise RAG Specialist",
+                        "Revenue Intelligence Builder",
+                        "Backend Security Expert",
+                    ],
+                    autoStart: true,
+                    loop: true,
+                    delay: 40,
+                }}
+            />
         </div>
 
         <p className="text-sm sm:text-base lg:text-lg text-muted-foreground/80 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
