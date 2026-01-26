@@ -32,7 +32,7 @@ export const Preloader = () => {
                             transition={{ duration: 1, ease: "easeOut" }}
                             className="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-[0.2em] md:tracking-[0.4em] pl-[0.2em] md:pl-[0.4em] mb-6 text-center will-change-[transform,opacity]"
                         >
-                            WELCOME TO NAVEEN PORTFOLIO
+                            welcome to naveen portfolio
                         </motion.h2>
 
                         {/* Part 2: NAVEEN PORTFOLIO */}
