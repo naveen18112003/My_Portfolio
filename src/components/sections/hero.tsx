@@ -103,10 +103,11 @@ const ContentBody = ({ mobile = false }: { mobile?: boolean }) => (
             <Typewriter
                 options={{
                     strings: [
-                        "Agentic AI Architect",
-                        "Enterprise RAG Specialist",
-                        "Revenue Intelligence Builder",
-                        "Backend Security Expert",
+                        "Agentic AI Engineer",
+                        "Enterprise RAG Architect",
+                        "GenAI Specialist",
+                        "LLMs • RAG • Autonomous Agents",
+                        "DSA & Problem Solving Expert",
                     ],
                     autoStart: true,
                     loop: true,
@@ -115,8 +116,8 @@ const ContentBody = ({ mobile = false }: { mobile?: boolean }) => (
             />
         </div>
 
-        <p className="text-sm sm:text-base lg:text-lg text-muted-foreground/80 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-            Crafting autonomous intelligence and resilient backend infrastructures. Senior student at Sir MVIT, Bengaluru.
+        <p className="text-sm sm:text-base lg:text-lg text-muted-foreground/80 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed uppercase tracking-[0.2em] font-medium">
+            Specializing in GenAI, RAG, and Autonomous Agents. <span className="text-primary/80">Final Year CSE (IoT) Student.</span>
         </p>
 
         <div className="hidden lg:block mb-8">

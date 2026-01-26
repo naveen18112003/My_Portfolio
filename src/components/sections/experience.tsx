@@ -19,6 +19,34 @@ export function Experience() {
                         </h2>
                     </div>
 
+                    {/* Professional Experience */}
+                    <div className="mb-12 relative pl-8 border-l border-primary/20 fade-in-on-load">
+                        <div className="absolute left-0 top-1.5 w-3 h-3 -translate-x-[6px] bg-primary rounded-full ring-4 ring-primary/10" />
+                        <h3 className="text-xl md:text-2xl font-bold mb-6 text-white uppercase tracking-wider">Professional Experience</h3>
+
+                        <div className="space-y-10">
+                            {/* TCS Internship */}
+                            <div className="relative group">
+                                <h4 className="text-lg font-bold text-white group-hover:text-primary transition-colors uppercase">Cybersecurity Analyst – Virtual Internship</h4>
+                                <div className="text-primary text-sm font-semibold mb-2">Tata Consultancy Services (via Forage) • Aug 2025</div>
+                                <p className="text-muted-foreground/80 text-sm md:text-base leading-relaxed uppercase tracking-wide text-xs">
+                                    Worked on Identity and Access Management (IAM) concepts.
+                                    Analyzed access control strategies and secure system designs.
+                                </p>
+                            </div>
+
+                            {/* YouTube */}
+                            <div className="relative group">
+                                <h4 className="text-lg font-bold text-white group-hover:text-primary transition-colors uppercase">Content Creator</h4>
+                                <div className="text-primary text-sm font-semibold mb-2 text-xs">YouTube • Jun 2023 - Aug 2025</div>
+                                <p className="text-muted-foreground/80 text-sm md:text-base leading-relaxed uppercase tracking-wide text-xs">
+                                    Built and grew a technical channel to 1.2K+ subscribers.
+                                    Focused on complex technical communication and engagement.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
                     {/* Education */}
                     <div className="mb-12 relative pl-8 border-l border-primary/20 fade-in-on-load [animation-delay:100ms]">
                         <div className="absolute left-0 top-1.5 w-3 h-3 -translate-x-[6px] bg-primary rounded-full ring-4 ring-primary/10" />

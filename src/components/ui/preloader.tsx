@@ -30,9 +30,9 @@ export const Preloader = () => {
                             initial={{ opacity: 0, letterSpacing: "15px", y: 10 }}
                             animate={{ opacity: 1, letterSpacing: "6px", y: 0 }}
                             transition={{ duration: 1.2, ease: "easeOut" }}
-                            className="text-[10px] md:text-xs font-mono text-gray-500 tracking-[0.3em] md:tracking-[0.5em] pl-[0.3em] md:pl-[0.5em] mb-8 text-center will-change-[transform,opacity]"
+                            className="text-[10px] md:text-xs font-mono text-gray-500 tracking-[0.3em] md:tracking-[0.5em] pl-[0.3em] md:pl-[0.5em] mb-8 text-center uppercase will-change-[transform,opacity]"
                         >
-                            welcome to <span className="uppercase text-white/60">naveen portfolio</span>
+                            <span className="lowercase">welcome to</span> NAVEEN PORTFOLIO
                         </motion.h2>
 
                         {/* Part 2: NAVEEN PORTFOLIO */}
@@ -41,9 +41,9 @@ export const Preloader = () => {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-                                className="text-4xl md:text-7xl font-black text-center text-white font-space-grotesk leading-none tracking-tighter will-change-transform"
+                                className="text-4xl md:text-7xl font-black text-center text-white font-space-grotesk leading-none tracking-tighter will-change-transform uppercase"
                             >
-                                NAVEEN <span className="text-primary lg:text-white">KUMAR</span>
+                                NAVEEN KUMAR
                                 <span className="block mt-1 text-2xl md:text-5xl opacity-80">
                                     YADAV
                                 </span>
