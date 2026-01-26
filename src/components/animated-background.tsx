@@ -50,29 +50,28 @@ export const AnimatedBackground = ({
             {/* 2. Moving Aurora Orbs */}
             <motion.div
                 animate={{
-                    scale: [1, 1.2, 1],
-                    opacity: [0.3, 0.5, 0.3],
-                    rotate: [0, 90, 0],
+                    scale: [1, 1.1, 1],
+                    opacity: [0.3, 0.4, 0.3],
                 }}
                 transition={{
-                    duration: 10,
+                    duration: 12,
                     repeat: Infinity,
                     ease: "easeInOut"
                 }}
-                className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-primary/30 rounded-full blur-[120px] mix-blend-screen"
+                className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-primary/20 rounded-full blur-[80px] mix-blend-screen will-change-transform"
             />
             <motion.div
                 animate={{
-                    scale: [1, 1.5, 1],
-                    opacity: [0.2, 0.4, 0.2],
-                    x: [0, 100, 0],
+                    scale: [1, 1.3, 1],
+                    opacity: [0.2, 0.3, 0.2],
+                    x: [0, 50, 0],
                 }}
                 transition={{
-                    duration: 15,
+                    duration: 18,
                     repeat: Infinity,
                     ease: "easeInOut"
                 }}
-                className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-purple-600/20 rounded-full blur-[120px] mix-blend-screen"
+                className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-purple-600/15 rounded-full blur-[80px] mix-blend-screen will-change-transform"
             />
 
             {/* 3. Grid Pattern */}

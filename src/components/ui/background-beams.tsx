@@ -19,7 +19,7 @@ export const BackgroundBeams = ({ className }: { className?: string }) => {
             />
 
             {/* Moving Beams */}
-            {[...Array(6)].map((_, i) => (
+            {[...Array(3)].map((_, i) => (
                 <motion.div
                     key={i}
                     initial={{ opacity: 0, scale: 0.5, x: Math.random() * 500 - 250 }}

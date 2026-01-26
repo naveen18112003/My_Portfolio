@@ -62,13 +62,18 @@ export const CustomCursor = () => {
             }
             ctx.stroke();
 
-            // Draw Main Node (Glow Dot)
+            // Draw Main Node (Solid Dot)
             ctx.beginPath();
             ctx.arc(mouse.current.x, mouse.current.y, 4, 0, Math.PI * 2);
-            ctx.fillStyle = "#a855f7"; // Primary
-            ctx.shadowBlur = 15;
-            ctx.shadowColor = "#a855f7";
+            ctx.fillStyle = "#a855f7";
             ctx.fill();
+
+            // Slower Pulse Outer Circle (Simulated Glow)
+            ctx.beginPath();
+            ctx.arc(mouse.current.x, mouse.current.y, 8, 0, Math.PI * 2);
+            ctx.strokeStyle = "rgba(168, 85, 247, 0.2)";
+            ctx.lineWidth = 2;
+            ctx.stroke();
 
             requestRef.current = requestAnimationFrame(render);
         };
