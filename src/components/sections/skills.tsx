@@ -16,35 +16,43 @@ interface BentoItemProps {
 }
 
 const BentoItem = ({ title, description, icon, skills, className, delay = 0 }: BentoItemProps) => (
-    <m.div
-        initial={{ opacity: 0, scale: 0.98 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true, margin: "-50px" }}
-        transition={{ duration: 0.5, delay, ease: "easeOut" }}
-        className={cn(
-            "group relative overflow-hidden rounded-3xl border border-white/5 bg-white/[0.03] backdrop-blur-md transition-all hover:border-primary/40 will-change-transform",
-            className
-        )}
-    >
-        <div className="relative z-10 p-6 h-full flex flex-col items-start gap-4">
-            <div className="inline-flex items-center justify-center rounded-2xl bg-primary/5 p-3 text-primary group-hover:scale-110 transition-transform duration-500 border border-primary/10">
-                {icon}
-            </div>
+    <div className={cn("fade-in-on-load lg:animate-none", className)} style={{ animationDelay: `${delay}s` }}>
+        <m.div
+            initial={{ opacity: 0, scale: 0.98 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay, ease: "easeOut" }}
+            className="hidden lg:block h-full will-change-transform"
+        >
+            <BentoItemContent title={title} description={description} icon={icon} skills={skills} />
+        </m.div>
 
-            <div>
-                <h3 className="mb-2 text-xl font-bold font-space-grotesk text-white">{title}</h3>
-                <p className="mb-4 text-sm text-muted-foreground/80 leading-relaxed">{description}</p>
-            </div>
-
-            <div className="flex flex-wrap gap-2 mt-auto">
-                {skills.map(skill => (
-                    <Badge key={skill} variant="outline" className="text-[10px] bg-black/50 border-white/5 hover:border-primary/50 hover:text-primary transition-colors py-0.5">
-                        {skill}
-                    </Badge>
-                ))}
-            </div>
+        {/* Mobile static version */}
+        <div className="lg:hidden h-full rounded-3xl border border-white/5 bg-white/[0.03] backdrop-blur-md">
+            <BentoItemContent title={title} description={description} icon={icon} skills={skills} />
         </div>
-    </m.div>
+    </div>
+);
+
+const BentoItemContent = ({ title, description, icon, skills }: Omit<BentoItemProps, 'className' | 'delay'>) => (
+    <div className="relative z-10 p-6 h-full flex flex-col items-start gap-4 group-hover:border-primary/40 transition-all duration-300">
+        <div className="inline-flex items-center justify-center rounded-2xl bg-primary/5 p-3 text-primary lg:group-hover:scale-110 transition-transform duration-500 border border-primary/10">
+            {icon}
+        </div>
+
+        <div>
+            <h3 className="mb-2 text-xl font-bold font-space-grotesk text-white">{title}</h3>
+            <p className="mb-4 text-sm text-muted-foreground/80 leading-relaxed">{description}</p>
+        </div>
+
+        <div className="flex flex-wrap gap-2 mt-auto">
+            {skills.map(skill => (
+                <Badge key={skill} variant="outline" className="text-[10px] bg-black/50 border-white/5 py-0.5">
+                    {skill}
+                </Badge>
+            ))}
+        </div>
+    </div>
 );
 
 const FloatingIcon = ({ icon, delay, x, y }: { icon: React.ReactNode, delay: number, x: string, y: string }) => (

@@ -52,13 +52,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={cn(inter.variable, spaceGrotesk.variable, "font-sans antialiased bg-background text-foreground overflow-x-hidden lg:cursor-none")}>
-        <CustomCursor />
+      <body className={cn(inter.variable, spaceGrotesk.variable, "font-sans antialiased bg-background text-foreground overflow-x-hidden lg:cursor-none select-none md:select-auto")}>
+        <div className="hidden lg:block">
+          <CustomCursor />
+        </div>
         <SoundProvider>
           <ChatProvider>
             <SmoothScroll>
               <Preloader />
-              <NoiseOverlay />
+              <div className="hidden lg:block">
+                <NoiseOverlay />
+              </div>
               <CommandMenu />
               <AiStatusBadge />
               {children}

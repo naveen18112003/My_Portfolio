@@ -143,55 +143,22 @@ export function Projects() {
 
                 <div className="grid grid-cols-1 gap-12 max-w-5xl mx-auto px-4">
                     {projects.map((project, idx) => (
-                        <m.div
-                            key={project.title}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: "-50px" }}
-                            transition={{ delay: idx * 0.1 }}
-                            className="group relative flex flex-col lg:flex-row gap-8 p-6 md:p-8 rounded-3xl border border-white/5 bg-white/[0.02] backdrop-blur-md hover:border-primary/40 transition-all duration-500 will-change-transform overflow-hidden"
-                        >
-                            {/* Content Side */}
-                            <div className="flex-1 z-10">
-                                <div className="flex items-center gap-3 mb-4">
-                                    <div className="p-2 bg-primary/10 rounded-lg text-primary">
-                                        <FolderGit2 className="w-5 h-5" />
-                                    </div>
-                                    <h3 className="text-2xl md:text-3xl font-bold font-space-grotesk text-white">{project.title}</h3>
-                                </div>
-                                <p className="text-muted-foreground text-sm md:text-base mb-6 leading-relaxed">{project.description}</p>
-                                <div className="flex flex-wrap gap-2 mb-8">
-                                    {project.tech.map(t => (
-                                        <Badge key={t} variant="secondary" className="bg-white/5 border-white/10 text-white/70 py-0">{t}</Badge>
-                                    ))}
-                                </div>
-                                <Button
-                                    variant="outline"
-                                    size="sm"
-                                    className="border-primary/30 hover:bg-primary/10 text-primary rounded-full px-6"
-                                    onClick={() => setSelectedProject(project)}
-                                >
-                                    <Layers className="w-4 h-4 mr-2" /> View Architecture
-                                </Button>
-                            </div>
+                        <div key={project.title} className="fade-in-on-load lg:animate-none" style={{ animationDelay: `${idx * 0.1}s` }}>
+                            <m.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, margin: "-50px" }}
+                                transition={{ delay: idx * 0.1 }}
+                                className="hidden lg:flex group relative flex-col lg:row gap-8 p-6 md:p-8 rounded-3xl border border-white/5 bg-white/[0.02] backdrop-blur-md hover:border-primary/40 transition-all duration-500 will-change-transform overflow-hidden"
+                            >
+                                <ProjectCardContent project={project} setSelectedProject={setSelectedProject} />
+                            </m.div>
 
-                            {/* Image Side */}
-                            <div className="flex-1 z-10">
-                                <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/5 group-hover:border-primary/30 transition-colors">
-                                    <Image
-                                        src={project.image}
-                                        fill
-                                        className="object-cover transition-transform duration-700 group-hover:scale-110"
-                                        alt={project.title}
-                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                    />
-                                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                                        <Link href={project.github} target="_blank"><Button size="sm" className="bg-white text-black">Source</Button></Link>
-                                        {project.demo !== "#" && <Link href={project.demo} target="_blank"><Button size="sm" className="bg-primary text-white">Live Demo</Button></Link>}
-                                    </div>
-                                </div>
+                            {/* Mobile version */}
+                            <div className="lg:hidden flex flex-col gap-6 p-6 rounded-3xl border border-white/5 bg-white/[0.02] backdrop-blur-md overflow-hidden">
+                                <ProjectCardContent project={project} setSelectedProject={setSelectedProject} />
                             </div>
-                        </m.div>
+                        </div>
                     ))}
                 </div>
             </div>
@@ -221,3 +188,64 @@ export function Projects() {
         </section>
     );
 }
+
+const ProjectCardContent = ({ project, setSelectedProject }: { project: Project, setSelectedProject: (p: Project) => void }) => (
+    <>
+        {/* Content Side */}
+        <div className="flex-1 z-10 flex flex-col justify-center">
+            <div className="flex items-center gap-3 mb-4">
+                <div className="p-2 bg-primary/10 rounded-lg text-primary">
+                    <FolderGit2 className="w-5 h-5" />
+                </div>
+                <h3 className="text-2xl md:text-3xl font-bold font-space-grotesk text-white">{project.title}</h3>
+            </div>
+            <p className="text-muted-foreground text-sm md:text-base mb-6 leading-relaxed">{project.description}</p>
+            <div className="flex flex-wrap gap-2 mb-8">
+                {project.tech.map(t => (
+                    <Badge key={t} variant="secondary" className="bg-white/5 border-white/10 text-white/70 py-0">{t}</Badge>
+                ))}
+            </div>
+            <Button
+                variant="outline"
+                size="sm"
+                className="border-primary/30 hover:bg-primary/10 text-primary rounded-full px-6 w-fit"
+                onClick={() => setSelectedProject(project)}
+            >
+                <Layers className="w-4 h-4 mr-2" /> View Architecture
+            </Button>
+        </div>
+
+        {/* Image Side */}
+        <div className="flex-1 z-10">
+            <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/5 group-hover:border-primary/30 transition-colors">
+                <Image
+                    src={project.image}
+                    fill
+                    className="object-cover transition-transform duration-700 lg:group-hover:scale-110"
+                    alt={project.title}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-black/40 flex items-center justify-center gap-4 opacity-0 lg:group-hover:opacity-100 transition-opacity">
+                    <Link href={project.github} target="_blank"><Button size="sm" className="bg-white text-black">Source</Button></Link>
+                    {project.demo !== "#" && <Link href={project.demo} target="_blank"><Button size="sm" className="bg-primary text-white">Live Demo</Button></Link>}
+                </div>
+
+                {/* Mobile version of links - visible without hover */}
+                <div className="absolute bottom-4 right-4 flex gap-2 lg:hidden">
+                    <Link href={project.github} target="_blank">
+                        <Button size="icon" variant="secondary" className="rounded-full w-8 h-8 bg-black/60 border-white/10">
+                            <Github className="w-4 h-4" />
+                        </Button>
+                    </Link>
+                    {project.demo !== "#" && (
+                        <Link href={project.demo} target="_blank">
+                            <Button size="icon" variant="default" className="rounded-full w-8 h-8">
+                                <ExternalLink className="w-4 h-4" />
+                            </Button>
+                        </Link>
+                    )}
+                </div>
+            </div>
+        </div>
+    </>
+);
