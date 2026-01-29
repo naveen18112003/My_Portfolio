@@ -64,17 +64,64 @@ export function Experience() {
                         <h3 className="text-xl md:text-2xl font-bold mb-4 flex items-center gap-2 text-white">
                             <Award className="w-5 h-5 text-secondary" /> Expert Credentials
                         </h3>
-                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-muted-foreground/80 text-sm md:text-base list-none">
+                        <ul className="grid grid-cols-1 gap-3 text-muted-foreground/80 text-sm md:text-base list-none">
                             {[
-                                "Generative AI, LLM and RAG – GfG",
-                                "Agentic AI Mastery – GfG",
-                                "Machine Learning Specialist – IBM",
-                                "Cybersecurity Analyst – TCS",
-                                "Advanced RAG Pipelines – GeeksforGeeks",
-                            ].map((item, i) => (
-                                <li key={i} className="flex items-start gap-2">
-                                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-secondary shrink-0" />
-                                    {item}
+                                {
+                                    name: "Generative AI, LLM and RAG – Skill Up (GeeksforGeeks, 2026)",
+                                    link: "https://www.geeksforgeeks.org/certificate/dae88e16ddd16704d7c1543461d2f916?utm_source=socials&utm_medium=cc_link",
+                                    image: "/cert-genai.jpg"
+                                },
+                                {
+                                    name: "Agentic AI – Skill Up (GeeksforGeeks, 2026)",
+                                    link: "https://www.geeksforgeeks.org/certificate/9f146fcd7158c3f26ab6a061d4e0a553?utm_source=socials&utm_medium=cc_link",
+                                    image: "/cert-agentic.jpg"
+                                },
+                                {
+                                    name: "AI Tools – Skill Up (GeeksforGeeks, 2026)",
+                                    link: "https://www.geeksforgeeks.org/certificate/ede1899b941709abac0d9473107696b9?utm_source=socials&utm_medium=cc_link",
+                                    image: "/cert-aitools.jpg"
+                                },
+                                {
+                                    name: "Machine Learning Introduction for Everyone – IBM (Coursera, 2025)",
+                                    link: "https://www.coursera.org/account/accomplishments/verify/79ZBC2YTT1",
+                                    image: "/cert-ml.jpg"
+                                },
+                                {
+                                    name: "Cybersecurity Awareness and Innovation – EIT Digital (Coursera, 2025)",
+                                    link: "https://www.coursera.org/account/accomplishments/verify/HM11A22C",
+                                    image: "/cert-cybersecurity.jpg"
+                                },
+                                {
+                                    name: "Cybersecurity Analyst Job Simulation – TCS (Forage, 2025)",
+                                    link: "https://drive.google.com/drive/u/1/folders/1qQPg4r1mzhX0HCn6j7YBGRfukrlmALEI",
+                                    image: "/cert-tcs.jpg"
+                                }
+                            ].map((cert, i) => (
+                                <li key={i} className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-xl bg-white/[0.03] border border-white/10 hover:border-secondary/30 transition-all group">
+                                    <div className="flex items-start gap-3">
+                                        <div className="mt-1 flex-shrink-0">
+                                            {cert.image ? (
+                                                <a href={cert.image} target="_blank" rel="noopener noreferrer" className="block w-10 h-10 rounded overflow-hidden border border-white/10 hover:border-secondary transition-colors">
+                                                    <img src={cert.image} alt="Certificate" className="w-full h-full object-cover" />
+                                                </a>
+                                            ) : (
+                                                <div className="w-1.5 h-1.5 rounded-full bg-secondary shrink-0 mt-2" />
+                                            )}
+                                        </div>
+                                        <span className="text-white/90 group-hover:text-white transition-colors font-medium">{cert.name}</span>
+                                    </div>
+                                    <div className="flex gap-2 shrink-0">
+                                        {cert.link && (
+                                            <a
+                                                href={cert.link}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="text-[10px] uppercase font-bold tracking-widest text-secondary hover:text-white hover:bg-secondary px-3 py-1.5 rounded-full border border-secondary/30 transition-all"
+                                            >
+                                                Verify
+                                            </a>
+                                        )}
+                                    </div>
                                 </li>
                             ))}
                         </ul>
