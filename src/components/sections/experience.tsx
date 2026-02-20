@@ -145,7 +145,7 @@ export function Experience() {
 
                         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
                             {[
-                                { label: "DSA Problems", val: "200+" },
+                                { label: "DSA Problems", val: "250+" },
                                 { label: "National Hackathon", val: "Top 64" },
                                 { label: "YouTube Audience", val: "1.2K+" },
                                 { label: "Leadership", val: "NCC Cadet" },
