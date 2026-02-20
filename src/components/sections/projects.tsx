@@ -28,31 +28,6 @@ interface Project {
 
 const projects: Project[] = [
     {
-        title: "AI Interview Buddy",
-        description: "An intelligent AI-powered interview platform featuring real-time STT/TTS, adaptive multi-agent reasoning, and comprehensive feedback generation.",
-        tech: ["Next.js", "FastAPI", "OpenAI", "WebSockets"],
-        github: "https://github.com/naveen18112003/AI-Interview-Buddy",
-        demo: "#",
-        image: "/project-agent.png",
-        featured: true,
-        architecture: `
-graph TD
-    User([Candidate]) <--> WS[WebSocket Gateway]
-    WS <--> Orchestrator[Process Orchestrator]
-    Orchestrator --> STT[Speech-to-Text]
-    Orchestrator --> LLM[AI Interviewer Agent]
-    LLM --> Feedback[Evaluation Engine]
-    LLM --> TTS[Text-to-Speech]
-    TTS --> WS
-    Feedback --> DB[(Result Store)]
-        `,
-        brief: {
-            challenge: "Achieving low-latency, real-time voice interaction while maintaining a complex, multi-stage interview state.",
-            solution: "Implemented a custom WebSocket-based orchestrator with parallelized STT/TTS processing and a state-conscious LLM wrapper.",
-            impact: "Reduced response latency by 50% and improved natural conversation flow, successfully simulating technical and HR rounds."
-        }
-    },
-    {
         title: "Enterprise RAG & Agentic Search",
         description: "Enterprise-grade RAG system with multi-step reasoning, intent-aware pipelines, and custom in-memory vector store using cosine similarity.",
         tech: ["Python", "FastAPI", "LLMs", "Vector DB"],
@@ -124,6 +99,31 @@ sequenceDiagram
             challenge: "Coordinating multiple agents without falling into 'infinite loops' or conflicting execution states.",
             solution: "Designed a state-machine orchestrator with strictly defined handoffs and a 'supervisor' agent that monitors for task redundancy.",
             impact: "Successfully automated 80% of repetitive operational workflows with zero manual intervention required."
+        }
+    },
+    {
+        title: "AI Interview Buddy",
+        description: "An intelligent AI-powered interview platform featuring real-time STT/TTS, adaptive multi-agent reasoning, and comprehensive feedback generation.",
+        tech: ["Next.js", "FastAPI", "OpenAI", "WebSockets"],
+        github: "https://github.com/naveen18112003/AI-Interview-Buddy",
+        demo: "#",
+        image: "/project-agent.png",
+        featured: true,
+        architecture: `
+graph TD
+    User([Candidate]) <--> WS[WebSocket Gateway]
+    WS <--> Orchestrator[Process Orchestrator]
+    Orchestrator --> STT[Speech-to-Text]
+    Orchestrator --> LLM[AI Interviewer Agent]
+    LLM --> Feedback[Evaluation Engine]
+    LLM --> TTS[Text-to-Speech]
+    TTS --> WS
+    Feedback --> DB[(Result Store)]
+        `,
+        brief: {
+            challenge: "Achieving low-latency, real-time voice interaction while maintaining a complex, multi-stage interview state.",
+            solution: "Implemented a custom WebSocket-based orchestrator with parallelized STT/TTS processing and a state-conscious LLM wrapper.",
+            impact: "Reduced response latency by 50% and improved natural conversation flow, successfully simulating technical and HR rounds."
         }
     },
     {
