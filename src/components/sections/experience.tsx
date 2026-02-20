@@ -25,23 +25,32 @@ export function Experience() {
                         <h3 className="text-xl md:text-2xl font-bold mb-6 text-white uppercase tracking-wider">Professional Experience</h3>
 
                         <div className="space-y-10">
+                            {/* MindMatrix Internship */}
+                            <div className="relative group">
+                                <h4 className="text-lg font-bold text-white group-hover:text-primary transition-colors uppercase">GenAI Intern</h4>
+                                <div className="text-primary text-sm font-semibold mb-2">MindMatrixEd • Jan 2026 - Present</div>
+                                <p className="text-muted-foreground/80 text-sm md:text-base leading-relaxed uppercase tracking-wide text-xs">
+                                    Building Android applications with Kotlin and Jetpack, and integrating Generative AI features using LLM APIs and prompt engineering.
+                                </p>
+                            </div>
+
                             {/* TCS Internship */}
                             <div className="relative group">
                                 <h4 className="text-lg font-bold text-white group-hover:text-primary transition-colors uppercase">Cybersecurity Analyst – Virtual Internship</h4>
-                                <div className="text-primary text-sm font-semibold mb-2">Tata Consultancy Services (via Forage) • Aug 2025</div>
+                                <div className="text-primary text-sm font-semibold mb-2">Tata Consultancy Services • Jul 2025 - Aug 2025</div>
                                 <p className="text-muted-foreground/80 text-sm md:text-base leading-relaxed uppercase tracking-wide text-xs">
-                                    Worked on Identity and Access Management (IAM) concepts.
-                                    Analyzed access control strategies and secure system designs.
+                                    Worked on Identity and Access Management (IAM) concepts used in large enterprises.
+                                    Analyzed access control strategies and secure system design considerations.
                                 </p>
                             </div>
 
                             {/* YouTube */}
                             <div className="relative group">
                                 <h4 className="text-lg font-bold text-white group-hover:text-primary transition-colors uppercase">Content Creator</h4>
-                                <div className="text-primary text-sm font-semibold mb-2 text-xs">YouTube • Jun 2023 - Aug 2025</div>
+                                <div className="text-primary text-sm font-semibold mb-2">YouTube • Jun 2023 - Aug 2025</div>
                                 <p className="text-muted-foreground/80 text-sm md:text-base leading-relaxed uppercase tracking-wide text-xs">
-                                    Built and grew a technical channel to 1.2K+ subscribers.
-                                    Focused on complex technical communication and engagement.
+                                    Built and grew a technical channel to 1.2K+ subscribers through consistent content creation.
+                                    Developed communication, audience engagement, and content planning skills.
                                 </p>
                             </div>
                         </div>

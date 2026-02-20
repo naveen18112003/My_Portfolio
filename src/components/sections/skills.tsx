@@ -108,7 +108,7 @@ export function Skills() {
                         title="AI / ML & Agentic Systems"
                         description="Specializing in multi-agent orchestration, advanced retrieval (RAG), and neural architectures."
                         icon={<Brain className="w-8 h-8" />}
-                        skills={["RAG Pipelines", "Agentic AI", "LLM Orchestration", "TensorFlow", "FastAPI", "Keras"]}
+                        skills={["RAG Pipelines", "Agentic AI", "LLM Orchestration", "STT/TTS", "TensorFlow", "FastAPI"]}
                         className="lg:col-span-2 bg-primary/5 border-primary/10"
                         delay={0.1}
                     />
@@ -118,7 +118,7 @@ export function Skills() {
                         title="Backend Architectures"
                         description="Developing resilient APIs and scalable high-performance logic."
                         icon={<Terminal className="w-8 h-8" />}
-                        skills={["FastAPI", "MongoDB", "Node.js", "RESTful APIs", "SQL"]}
+                        skills={["FastAPI", "WebSockets", "MongoDB", "Node.js", "RESTful APIs"]}
                         delay={0.2}
                     />
 

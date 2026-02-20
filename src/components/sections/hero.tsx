@@ -130,7 +130,7 @@ const ContentBody = ({ mobile = false }: { mobile?: boolean }) => (
                     Explore Engineering <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
             </Link>
-            <a href="/resume.pdf" download className="w-full sm:w-auto">
+            <a href="https://drive.google.com/file/d/1vv0il1J72DEUzRBqxyiFQ8GM7iNzatGH/view?usp=drive_link" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
                 <Button variant="outline" size="lg" className="w-full sm:w-auto h-12 px-8 border-white/10 hover:bg-white/5 rounded-full text-sm">
                     Get Resume <Download className="ml-2 w-4 h-4" />
                 </Button>
